@@ -1,14 +1,12 @@
-var hgWords = require("./hgWords");
+var hgWords = require("./Words");
 var inquirer = require("inquirer");
 var prompt = require('prompt');
 
 
-var hgWords = function() {
+var Game = function() {
     
     
     }
-    
-    module.exports = hgWords;
 
     // The file containing the logic for the course of the game, which depends on `Word.js` and:
     

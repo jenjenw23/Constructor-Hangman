@@ -1,8 +1,21 @@
-var hgLetters = function() {
+var Letters = function(ulChar) {
+    this.ulChar = ulChar;
+    this.letterGuessed = false;
+
+    this.letterOrUnderscore(){
+        //   * A function that returns the underlying character if the letter has been guessed, 
+        //   or a placeholder (like an underscore) if the letter has not been guessed
+        }
+
+    this.updateGuess(){
+        //   * A function that takes a character as an argument and checks it against the underlying 
+        //   character, updating the stored boolean value to true if it was guessed correctly    
+        }
 
 }
 
-module.exports = hgLetters;
+module.exports = Letters;
+
 
 // This constructor should be able to either display an underlying 
 // character or a blank placeholder (such as an underscore), depending on 
@@ -17,4 +30,5 @@ module.exports = hgLetters;
 
 //   * A function that takes a character as an argument and checks it against the underlying 
 //   character, updating the stored boolean value to true if it was guessed correctly
+
 

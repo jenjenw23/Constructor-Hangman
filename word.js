@@ -1,9 +1,13 @@
-var hgLetters = require("./hgLetters");
+var Letters = require("./Letters");
 
-var hgGame = function() {
+var Words = function() {
     
     
     }
+    
+    module.exports = Words;
+
+
     
     // Word that depends on the Letter constructor. This is used to create an object representing the current 
     // word the user is attempting to guess. That means the constructor should define:
