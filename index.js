@@ -4,10 +4,10 @@ var inquirer = require('inquirer');
 var prompt = require('prompt');
 
 // select ramdom word from wordList import
-var gameWord = new Word(wordList[Math.floor(Math.random() * wordList.length)]);
+var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+var gameWord = new Word(randomWord);
 
 var guessesLeft = 10;
-
 
 console.log("*******************************************")
 console.log('Welcome to Zodiac Hangman!')
@@ -44,6 +44,7 @@ var startGame = function () {
 
             if (guessesLeft === 0) {
                 console.log("\r\n" + "Out of guesses, game over!" + "\r\n")
+                console.log("The correct word was " + randomWord + "\r\n")
                 playAgain();
             } else if (!gameWord.notFinished()) {
                 console.log("\r\n" + "Great job, you win!" + "\r\n");
