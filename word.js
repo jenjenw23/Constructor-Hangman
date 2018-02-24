@@ -1,26 +1,44 @@
-var Letters = require("./Letters");
+var Letter = require('./letter.js');
 
-var Words = function() {
-    
-    
+var Word = function (input) {
+    var letterArr = [];
+
+    for (var letter in input) {
+        letterArr.push(new Letter(input[letter].toLowerCase()));
+    };
+
+    this.word = letterArr;
+
+    this.showLetters = function () {
+        var word = "";
+        for (var i = 0; i < this.word.length; i++) {
+            word += this.word[i].letterOrUnderscore() + " ";
+        };
+        return word;
     }
-    
-    module.exports = Words;
 
+    this.checkGuess = function (ulChar) {
+        for (var i = 0; i < this.word.length; i++) {
+            this.word[i].updateGuess(ulChar);
+        }
+        return this.showLetters();
+    }
 
-    
-    // Word that depends on the Letter constructor. This is used to create an object representing the current 
-    // word the user is attempting to guess. That means the constructor should define:
-    
-    //   * An array of `new` Letter objects representing the letters of the underlying word
-    
-    //   * A function that returns a string representing the word. This should call the 
-    //   function on each letter object (the first function defined in `Letter.js`) that 
-    //   displays the character or an underscore and concatenate those together.
-    
-    //   * A function that takes a character as an argument and calls the guess function on 
-    //   each letter object (the second function defined in `Letter.js`)
+    this.getAnswer = function () {
+        console.log(this.word);
+    }
 
+    this.notFinished = function () {
+        var stillNeedsGuessing = false;
+        for (var i = 0; i < this.word.length; i++) {
+            if (this.word[i].letterOrUnderscore() == "_") {
+                stillNeedsGuessing = true;
+                break;
+            }
+        }
 
+        return stillNeedsGuessing;
+    }
 
-
+}
+module.exports = Word;
