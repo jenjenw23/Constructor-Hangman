@@ -68,7 +68,8 @@ var startGame = function () {
             .then(function (response) {
                 if (response.playgame) {
                     guessesLeft = 10;
-                    gameWord = new Word(wordList[Math.floor(Math.random() * wordList.length)]);
+                    randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+                    gameWord = new Word(randomWord);
                     startGame();
                 } else {
                     console.log("Goodbye!")
